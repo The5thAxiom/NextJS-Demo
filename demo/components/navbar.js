@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Navbar() {
     return (
         <nav
@@ -7,9 +9,9 @@ export default function Navbar() {
                 justifyContent: 'space-evenly'
             }}
         >
-            <a href='/'>Home</a>
-            <a href='/about'>About</a>
-            <a href='/recipes/'>Browse recipes</a>
+            <Link href='/'>Home</Link>
+            <Link href='/about'>About</Link>
+            <Link href='/recipes/'>Browse recipes</Link>
         </nav>
     );
 }
