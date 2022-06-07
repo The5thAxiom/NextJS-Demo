@@ -1,21 +1,18 @@
 import { useEffect, useState } from 'react';
 import Loading from '../../components/loading';
 
-export default function Browse() {
-    const [recipes, setRecipes] = useState(null);
-    useEffect(() => {
-        fetch('https://cookbook-demo-the5thaxiom.herokuapp.com/api/recipes/all')
-            .then(res => (res.ok ? res.json() : { recipes: null }))
-            .then(data => setRecipes(data.recipes));
-    }, []);
+export async function getStaticProps() {
+    const res = await fetch(
+        'https://cookbook-demo-the5thaxiom.herokuapp.com/api/recipes/all'
+    );
+    const data = await res.json();
+    return {
+        props: { recipes: data.recipes }
+    };
+}
 
-    if (recipes === null)
-        return (
-            <main>
-                <Loading />
-            </main>
-        );
-    else if (recipes.length === 0) return <div>no recipes found :(</div>;
+export default function Browse({ recipes }) {
+    if (recipes.length === 0) return <div>no recipes found :(</div>;
     else
         return (
             <main>
