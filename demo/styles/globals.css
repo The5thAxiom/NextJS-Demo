@@ -16,6 +16,14 @@ div#__next {
     min-height: 100vh;
 }
 
+a {
+    color: red;
+}
+
+a:visited {
+    color: maroon;
+}
+
 main {
     padding: 10px;
     text-align: center;
@@ -25,20 +33,36 @@ main {
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-nav > a {
+nav > .logo {
+    padding: 10px;
+    font-size: xx-large;
+    margin-right: auto;
+}
+
+nav > .link {
     padding: 10px;
     display: block;
-    text-decoration: none;
     text-align: center;
     color: inherit;
-    width: 100%;
+    cursor: pointer;
 }
 
-nav > a:hover {
-    background-color: lightgray;
+nav > .link > a {
+    text-decoration: none;
+}
+
+nav > .link > a:visited {
+    color: inherit;
+}
+
+nav > .link.active,
+nav > .link:hover {
+    border-bottom: 3px red solid;
+    color: red;
 }
 
 footer {
@@ -51,3 +75,4 @@ footer {
 main ol > li {
     text-align: left;
 }
+
