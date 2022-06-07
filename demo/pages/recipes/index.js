@@ -12,13 +12,15 @@ export default function Browse() {
     else if (recipes.length === 0) return <div>no recipes found :(</div>;
     else
         return (
-            <ol>
-                {recipes.map((r, i) => (
-                    <li key={i}>
-                        <a href={`/recipes/${r.id}`}>{r.name}</a> by{' '}
-                        {r.contributor_username}
-                    </li>
-                ))}
-            </ol>
+            <main>
+                <ol>
+                    {recipes.map((r, i) => (
+                        <li key={i}>
+                            <a href={`/recipes/${r.id}`}>{r.name}</a> by{' '}
+                            {r.contributor_username}
+                        </li>
+                    ))}
+                </ol>
+            </main>
         );
 }
