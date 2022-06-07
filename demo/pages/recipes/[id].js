@@ -8,11 +8,12 @@ export default function Recipes() {
     const [recipe, setRecipe] = useState(null);
 
     useEffect(() => {
-        fetch(
-            `https://cookbook-demo-the5thaxiom.herokuapp.com/api/recipes/${id}`
-        )
-            .then(res => (res.ok ? res.json() : null))
-            .then(data => setRecipe(data));
+        if (id)
+            fetch(
+                `https://cookbook-demo-the5thaxiom.herokuapp.com/api/recipes/${id}`
+            )
+                .then(res => (res.ok ? res.json() : null))
+                .then(data => setRecipe(data));
     }, [id]);
 
     if (recipe)
