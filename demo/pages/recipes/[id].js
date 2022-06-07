@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '../../components/loading';
 
 export default function Recipes() {
     const router = useRouter();
@@ -22,5 +23,10 @@ export default function Recipes() {
                 <h1>{recipe.name}</h1>
             </main>
         );
-    else return <div>loading...</div>;
+    else
+        return (
+            <main>
+                <Loading />
+            </main>
+        );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Loading from '../../components/loading';
 
 export default function Browse() {
     const [recipes, setRecipes] = useState(null);
@@ -8,7 +9,12 @@ export default function Browse() {
             .then(data => setRecipes(data.recipes));
     }, []);
 
-    if (recipes === null) return <div>loading...</div>;
+    if (recipes === null)
+        return (
+            <main>
+                <Loading />
+            </main>
+        );
     else if (recipes.length === 0) return <div>no recipes found :(</div>;
     else
         return (
