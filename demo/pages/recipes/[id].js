@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Loading from '../../components/loading';
 
 export default function Recipes() {
@@ -20,6 +21,9 @@ export default function Recipes() {
     if (recipe)
         return (
             <main>
+                <Head>
+                    <title>{recipe.name}</title>
+                </Head>
                 <h1>{recipe.name}</h1>
             </main>
         );
