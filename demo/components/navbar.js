@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import styles from '../styles/navbar.module.css';
 
 const links = [
     { title: 'Home', to: '/' },
@@ -14,13 +15,17 @@ export default function Navbar() {
     });
     console.log(activeLinks);
     return (
-        <nav>
-            <div className='logo'>Demo</div>
+        <nav className={styles.navbar}>
+            <div className={styles.logo}>Demo</div>
             {activeLinks.map((l, i) => (
                 <div
                     key={i}
                     // className='link'
-                    className={'link' + (l.isActive ? ' active' : ' inactive')}
+                    className={
+                        styles.link +
+                        ' ' +
+                        (l.isActive ? styles.active : styles.inactive)
+                    }
                 >
                     <Link href={l.to}>{l.title}</Link>
                 </div>

@@ -30,48 +30,6 @@ main {
     flex: auto;
 }
 
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-nav > .logo {
-    padding: 10px;
-    font-size: xx-large;
-    margin-right: auto;
-}
-
-nav > .link {
-    padding: 10px;
-    display: block;
-    text-align: center;
-    color: inherit;
-    cursor: pointer;
-}
-
-nav > .link > a {
-    text-decoration: none;
-}
-
-nav > .link > a:visited {
-    color: inherit;
-}
-
-nav > .link.active,
-nav > .link:hover {
-    border-bottom: 3px red solid;
-    color: red;
-}
-
-footer {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 main ol > li {
     text-align: left;
 }
