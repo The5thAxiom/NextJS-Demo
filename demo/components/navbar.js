@@ -13,22 +13,21 @@ export default function Navbar() {
     const activeLinks = links.map(l => {
         return { ...l, isActive: router.pathname === l.to };
     });
-    console.log(activeLinks);
     return (
         <nav className={styles.navbar}>
             <div className={styles.logo}>Demo</div>
             {activeLinks.map((l, i) => (
-                <div
-                    key={i}
-                    // className='link'
-                    className={
-                        styles.link +
-                        ' ' +
-                        (l.isActive ? styles.active : styles.inactive)
-                    }
-                >
-                    <Link href={l.to}>{l.title}</Link>
-                </div>
+                <Link key={i} href={l.to}>
+                    <div
+                        className={
+                            styles.link +
+                            ' ' +
+                            (l.isActive ? styles.active : styles.inactive)
+                        }
+                    >
+                        {l.title}
+                    </div>
+                </Link>
             ))}
         </nav>
     );
