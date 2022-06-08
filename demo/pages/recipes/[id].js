@@ -10,7 +10,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function Recipes({ recipe }) {
-    console.log(recipe);
     return (
         <main>
             <Head>
@@ -27,26 +26,41 @@ export default function Recipes({ recipe }) {
             <em>{recipe.description}</em>
             <br />
             <br />
-            <ul>
-                {recipe.recipe_tags.map(t => (
-                    <li>{t}</li>
+            <div
+                className='recipe-tags'
+                style={{
+                    display: 'flex',
+                    gap: '10px',
+                    justifyContent: 'center'
+                }}
+            >
+                {recipe.recipe_tags.map((t, i) => (
+                    <div
+                        key={i}
+                        style={{
+                            padding: '5px 10px',
+                            backgroundColor: 'lightgray',
+                            borderRadius: '10px',
+                            color: 'red'
+                        }}
+                    >
+                        {t}
+                    </div>
                 ))}
-            </ul>
+            </div>
             <h2>Ingredients</h2>
-            <ol>
+            <ol style={{ paddingInline: '30%' }}>
                 {recipe.recipe_ingredients.map((ing, index) => (
-                    <li key={index} className='recipe-ingredient'>
+                    <li key={index}>
                         {ing.quantity} {ing.unit} of {ing.english_name} (
                         {ing.hindi_name_devnagari} | {ing.hindi_name_latin})
                     </li>
                 ))}
             </ol>
             <h2>Steps</h2>
-            <ol>
+            <ol style={{ paddingInline: '30%' }}>
                 {recipe.recipe_steps.map((step, index) => (
-                    <li key={index} className='recipe-step'>
-                        {step}
-                    </li>
+                    <li key={index}>{step}</li>
                 ))}
             </ol>
         </main>
